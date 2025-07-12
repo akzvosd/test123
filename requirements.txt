@@ -1,2 +1,2 @@
-Flask
-Pillow 
+Flask>=2.0
+Pillow>=8.0 
