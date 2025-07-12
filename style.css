@@ -1,0 +1,125 @@
+body {
+    font-family: 'Geist mono', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px 4px;
+  width: 100%;
+  margin: 0 auto 64px auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.letter img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.desc {
+  padding-right: 24px;
+}
+
+.intro {
+    padding-right: 64px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+video {
+    width: 100%;
+}
+
+.block {
+    margin-bottom: 4px;
+    break-inside: avoid;
+}
+.block p {
+    margin: 0;
+    padding: 0;
+}
+
+.gallery {
+    column-count: 5;
+    column-gap: 4px;
+    margin: 0;
+    padding: 4px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+.m-m-b {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+    .intro {
+        padding: 0;
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+    .gallery {
+        column-count: 2;
+        padding: 0;
+    }
+    .main-grid {
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: auto repeat(5, auto);
+      gap: 8px 2px;
+      padding: 0 4px;
+    }
+    .main-grid .letter {
+      grid-row: 1;
+    }
+    .main-grid .desc {
+      grid-column: 1 / span 5;
+      padding-right: 0;
+    }
+    .m-m-b {
+        margin-bottom: 8px !important;
+    }
+    .main-grid .desc:nth-child(6) { grid-row: 2; }
+    .main-grid .desc:nth-child(7) { grid-row: 3; }
+    .main-grid .desc:nth-child(8) { grid-row: 4; }
+    .main-grid .desc:nth-child(9) { grid-row: 5; }
+    .main-grid .desc:nth-child(10) { grid-row: 6; }
+    .main-grid .letter img {
+      width: 100%;
+      height: auto;
+      padding: 0;
+      box-sizing: border-box;
+      display: block;
+    }
+}

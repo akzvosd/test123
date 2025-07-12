@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mda Sanek — Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-config" content="browserconfig.xml">
+</head>
+<body>
+    <section class="main-grid">
+      <div class="letter"><img src="w/S.svg"></div>
+      <div class="letter"><img src="w/A.svg"></div>
+      <div class="letter"><img src="w/N.svg"></div>
+      <div class="letter"><img src="w/YO.svg"></div>
+      <div class="letter"><img src="w/K.svg"></div>
+
+      <div class="desc intro">
+        <p>
+            Hey there, my name is Sanek and I'm a graphic designer. I love make brand design, brand strategy, icons, fonts, navigation, events, and other graphic design stuff.
+        </p>
+      </div>
+      <div class="desc">
+        <p><u>Work</u></p>
+        <p><a href="https://www.rsclabs.io/" target="_blank" rel="noopener">Xsolla (RSC Labs) — Brand Designer</a></p>
+        <p><a href="https://eshgruppa.com/" target="_blank" rel="noopener">ESH Gruppa (P) — Brand Designer</a></p>
+        <p><a href="https://yahall.am/" target="_blank" rel="noopener">Yandex (P) — Event Designer</a></p>
+        <p><a href="https://www.behance.net/gallery/227764787/AI9-Brand-Identity" target="_blank" rel="noopener">AI9 Startup Campus — Lead Designer</a></p>
+        <p><a href="https://www.embacy.io/" target="_blank" rel="noopener">Embacy — Lead Designer</a></p>
+        <p>Hadassah Medical — Packaging</p>
+        <p>RSHU — Editorial Designer & Journalist</p>
+      </div>
+      <div class="desc">
+        <div class="m-m-b">
+            <p><u>School</u></p>
+            <p>HSE ART AND DESIGN, Moscow</p>
+            <p>Polar Academy, SPb</p>
+            <p>DesignWorkout, Offline Workshop</p>
+            <p>DesignWorkout, Online Course</p>
+            <p>desgraf, Offline Course</p>
+        </div>
+        <div>
+            <p><u>Events</u></p>
+            <p><a href="https://yahall.am/" target="_blank" rel="noopener">Opening Yandex Office, Yerevan</a></p>
+            <p><a href="https://www.letsdefine.io/" target="_blank" rel="noopener">Let's Define, Ailaic, Spain</a></p>
+            <p><a href="https://www.hse.ru/en/news/516278607.html" target="_blank" rel="noopener">Human Tired at HSE ART GALLERY</a></p>
+            <p><a href="https://www.behance.net/gallery/100717067/festival-bessoznatelgo-iskusstva" target="_blank" rel="noopener">Unconscious Art Fest at Balti, SPb</a></p>
+        </div>
+      </div>
+      <div class="desc">
+        <div class="m-m-b">
+            <p><u>Awards</u></p>
+            <p><a href="https://www.behance.net/korshenyk" target="_blank" rel="noopener">Behance — 27 rewards</a></p>
+            <p><a href="https://worldbranddesign.com/embacy-created-brand-identity-and-website-for-kinescope/" target="_blank" rel="noopener">WBDS — Kinescope — Bronze</a></p>
+            <p><a href="https://worldbranddesign.com/cooperative-chyorniy-coffee-hoyse-brand-identity-concept-by-sasha-korshenyuk/" target="_blank" rel="noopener">WBDS — Cooperative — Bronze</a></p>
+            <p><a href="https://www.behance.net/gallery/112137893/Consume-Less-Create-More-Exhibiton-Identity" target="_blank" rel="noopener">Sreda — Consume Less — Silver</a></p>
+            <p><a href="https://2024.festivalsreda.ru/works/tipografika-v-ajdentike/6372/index.html" target="_blank" rel="noopener">Sreda — Avito Design Team — Bronze</a></p>
+            <p><a href="https://www.behance.net/gallery/122403893/YHTYS-Typography-Beer-Package" target="_blank" rel="noopener">Sreda — YHTYS — Short List</a></p>
+            <p><a href="https://www.awwwards.com/sites/embacy-2" target="_blank" rel="noopener">Awwwards — Embacy</a></p>
+        </div>
+        <div>
+            <p><u>Press</u></p>
+            <p><a href="https://abduzeedo.com/a19-building-bold-startup-branding-and-visual-identity" target="_blank" rel="noopener">Abduzeedo</a></p>
+            <p><a href="https://worldbranddesign.com/cooperative-chyorniy-coffee-hoyse-brand-identity-concept-by-sasha-korshenyuk/" target="_blank" rel="noopener">WBDS</a></p>
+            <p><a href="https://packagingoftheworld.com/2021/06/yhtys-typography-beer-package.html" target="_blank" rel="noopener">POTW</a></p>
+        </div>
+      </div>
+      <div class="desc">
+        <p><u>Contacts</u></p>
+        <p><a href="https://www.behance.net/korshenyk" target="_blank" rel="noopener">Behance</a></p>
+        <p><a href="https://www.behance.net/korshenyk" target="_blank" rel="noopener">Telegram</a></p>
+        <p><a href="https://www.instagram.com/korshenyk/" target="_blank" rel="noopener">Instagram</a></p>
+        <p><a href="ak-cv.pdf" target="_blank" rel="noopener">CV</a></p>
+        <p><a href="mailto:mdasanyok@gmail.com">Mail</a></p>
+      </div>
+    </section>
+
+    <section class="gallery" id="gallery"></section>
+    <div id="loader" style="display:none;text-align:center;padding:16px;color:#888;">Загрузка...</div>
+
+    <script>
+    const PAGE_SIZE = 20;
+    let galleryItems = [];
+    let page = 0;
+    let loading = false;
+    let allLoaded = false;
+
+    function renderSkeletons(count) {
+        const gallery = document.getElementById('gallery');
+        for (let i = 0; i < count; i++) {
+            const skel = document.createElement('div');
+            skel.className = 'block skeleton';
+            gallery.appendChild(skel);
+        }
+    }
+
+    function removeSkeletons() {
+        const gallery = document.getElementById('gallery');
+        Array.from(gallery.querySelectorAll('.skeleton')).forEach(el => {
+            gallery.removeChild(el);
+        });
+    }
+
+    function renderGalleryChunk() {
+        const gallery = document.getElementById('gallery');
+        const start = page * PAGE_SIZE;
+        const end = Math.min(start + PAGE_SIZE, galleryItems.length);
+        for (let i = start; i < end; i++) {
+            const item = galleryItems[i];
+            if (item.caption && item.caption.trim()) {
+                gallery.innerHTML += `<div class="block"><img src="${item.src}" alt="${item.caption.replace(/"/g, '&quot;')}" loading="lazy"/><p>${item.caption}</p></div>`;
+            } else {
+                gallery.innerHTML += `<img src="${item.src}" alt="" loading="lazy">`;
+            }
+        }
+        page++;
+        if (end >= galleryItems.length) allLoaded = true;
+    }
+
+    function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+
+    async function loadGallery() {
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = '';
+        page = 0;
+        allLoaded = false;
+        loading = false;
+        document.getElementById('loader').style.display = 'block';
+        try {
+            const res = await fetch('/gallery.json');
+            galleryItems = await res.json();
+            shuffleArray(galleryItems);
+            renderSkeletons(PAGE_SIZE);
+            setTimeout(() => {
+                removeSkeletons();
+                renderGalleryChunk();
+                document.getElementById('loader').style.display = 'none';
+            }, 600);
+        } catch (e) {
+            gallery.innerHTML = '<p style="color:red">Ошибка загрузки галереи</p>';
+            document.getElementById('loader').style.display = 'none';
+        }
+    }
+
+    async function loadMore() {
+        if (loading || allLoaded) return;
+        loading = true;
+        document.getElementById('loader').style.display = 'block';
+        renderSkeletons(PAGE_SIZE);
+        setTimeout(() => {
+            removeSkeletons();
+            renderGalleryChunk();
+            document.getElementById('loader').style.display = allLoaded ? 'none' : 'block';
+            loading = false;
+        }, 600);
+    }
+
+    window.addEventListener('scroll', () => {
+        if (allLoaded || loading) return;
+        const scrollY = window.scrollY || window.pageYOffset;
+        const winH = window.innerHeight;
+        const docH = document.body.offsetHeight;
+        if (scrollY + winH > docH - 200) {
+            loadMore();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', loadGallery);
+    </script>
+    <style>
+.block.skeleton { background: #222; height: 180px; margin-bottom: 4px; border-radius: 4px; opacity: 0.3; }
+</style>
+</body>
+</html>

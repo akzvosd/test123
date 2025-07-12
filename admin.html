@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin — Gallery Upload</title>
+    <style>
+        body { background: #111; color: #fff; font-family: sans-serif; }
+        form { margin: 40px auto; max-width: 400px; background: #222; padding: 24px; border-radius: 8px; }
+        input, textarea, button { width: 100%; margin-bottom: 12px; padding: 8px; border-radius: 4px; border: none; }
+        button { background: #444; color: #fff; cursor: pointer; }
+        .msg { margin: 12px 0; }
+    </style>
+</head>
+<body>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <h2>Загрузка изображений в галерею</h2>
+        <input type="file" id="fileInput" name="file" accept="image/*" multiple required style="margin-bottom:8px;">
+        <div id="previews"></div>
+        <button type="submit">Загрузить</button>
+        <div class="msg" id="msg"></div>
+        <a href="/logout" style="color:#aaa;">Выйти</a>
+    </form>
+    <script>
+    const fileInput = document.getElementById('fileInput');
+    const previews = document.getElementById('previews');
+    let files = [];
+
+    fileInput.addEventListener('change', handleFiles);
+    // Drag & drop
+    fileInput.parentElement.addEventListener('dragover', e => { e.preventDefault(); fileInput.parentElement.style.background = '#222'; });
+    fileInput.parentElement.addEventListener('dragleave', e => { e.preventDefault(); fileInput.parentElement.style.background = ''; });
+    fileInput.parentElement.addEventListener('drop', e => {
+        e.preventDefault();
+        fileInput.parentElement.style.background = '';
+        fileInput.files = e.dataTransfer.files;
+        handleFiles();
+    });
+
+    function handleFiles() {
+        files = Array.from(fileInput.files);
+        previews.innerHTML = '';
+        files.forEach((file, i) => {
+            const div = document.createElement('div');
+            div.style = 'margin-bottom:8px; background:#181818; padding:8px; border-radius:4px; display:flex; align-items:center;';
+            const img = document.createElement('img');
+            img.style = 'width:48px;height:48px;object-fit:cover;margin-right:8px;border-radius:2px;';
+            img.src = URL.createObjectURL(file);
+            div.appendChild(img);
+            const label = document.createElement('input');
+            label.type = 'text';
+            label.placeholder = 'Подпись (необязательно)';
+            label.name = 'caption';
+            label.style = 'flex:1; margin-right:8px;';
+            div.appendChild(label);
+            previews.appendChild(div);
+        });
+    }
+
+    document.getElementById('uploadForm').onsubmit = async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData();
+        files.forEach((file, i) => {
+            data.append('file', file);
+            const caption = previews.querySelectorAll('input[name="caption"]')[i]?.value || '';
+            data.append('caption', caption);
+        });
+        const msg = document.getElementById('msg');
+        msg.textContent = '';
+        try {
+            const res = await fetch('/upload', {
+                method: 'POST',
+                body: data,
+                credentials: 'same-origin'
+            });
+            const json = await res.json();
+            if (json.results && Array.isArray(json.results)) {
+                const ok = json.results.find(r => r.success);
+                if (ok) {
+                    msg.textContent = 'Успешно загружено!';
+                    form.reset();
+                    previews.innerHTML = '';
+                } else {
+                    msg.textContent = json.results[0]?.error || 'Ошибка загрузки';
+                }
+            } else if (json.success) {
+                msg.textContent = 'Успешно загружено!';
+                form.reset();
+                previews.innerHTML = '';
+            } else {
+                msg.textContent = json.error || 'Ошибка загрузки';
+            }
+        } catch (err) {
+            msg.textContent = 'Ошибка соединения';
+        }
+    };
+    </script>
+</body>
+</html> 
